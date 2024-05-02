@@ -191,7 +191,7 @@ const Cart = () => {
       }
     };
     stripeToken && makeRequest();
-  }, [stripeToken, history]);
+  }, [stripeToken, cart, history]);
 
   console.log(cart);
 
