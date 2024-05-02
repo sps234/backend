@@ -163,6 +163,7 @@ const Button = styled.button`
 `;
 
 const Cart = () => {
+
   const cart = useSelector((state) => state.cart);
 
   const [stripeToken, setStripeToken] = useState(null);
@@ -190,7 +191,7 @@ const Cart = () => {
       }
     };
     stripeToken && makeRequest();
-  }, [stripeToken, cart.total, history]);
+  }, [stripeToken, history]);
 
   console.log(cart);
 
