@@ -6,6 +6,7 @@ import { mobile } from "../responsive";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { logoutUser } from "../redux/apiCalls";
+import { useHistory } from "react-router-dom";
 
 const Container = styled.div`
   height: 60px;
@@ -75,10 +76,12 @@ const Navbar = () => {
   const user = useSelector((state) => state.user.currentUser);
   const quantity = useSelector(state => state.cart.quantity);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleLogout = (e) => {
     e.preventDefault();
     logoutUser(dispatch);
+    history.push('/');
   };
 
   return (
