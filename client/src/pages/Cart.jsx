@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { userRequest } from "../requestMethods";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
+import { increaseQuantity, decreaseQuantity } from "../redux/cartRedux";
 
 
 const KEY = "pk_test_51P8ndED4LIaqfaizi5XCrgRTLND6dqxw4nfxWUR0nRSm0NykOO0aCVTnVVtGdU23nCUB2qtK5hGA8u5sT1XCKaX300N0pKhQN3"
@@ -236,9 +237,9 @@ const Cart = () => {
                 </ProductDetail>
                 <PriceDetail>
                   <ProductAmountContainer>
-                    <Add />
+                    <Remove onClick={() => dispatch(decreaseQuantity(product._id))} />
                     <ProductAmount>{product.quantity}</ProductAmount>
-                    <Remove />
+                    <Add onClick={() => dispatch(increaseQuantity(product._id))} />
                   </ProductAmountContainer>
                   <ProductPrice>
                     ₹ {product.price * product.quantity}

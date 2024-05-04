@@ -97,7 +97,7 @@ const Navbar = () => {
         </Left>
         <Center>
           <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }} >
-            <Logo>E-Commerce</Logo>
+            <Logo>SwiftCart</Logo>
           </Link>
         </Center>
         <Right>
