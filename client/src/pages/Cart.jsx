@@ -11,6 +11,7 @@ import { userRequest } from "../requestMethods";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import { increaseQuantity, decreaseQuantity } from "../redux/cartRedux";
+import { useDispatch } from "react-redux";
 
 
 const KEY = "pk_test_51P8ndED4LIaqfaizi5XCrgRTLND6dqxw4nfxWUR0nRSm0NykOO0aCVTnVVtGdU23nCUB2qtK5hGA8u5sT1XCKaX300N0pKhQN3"
@@ -169,6 +170,7 @@ const Cart = () => {
 
   const [stripeToken, setStripeToken] = useState(null);
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const onToken = (token) => {
     setStripeToken(token);
