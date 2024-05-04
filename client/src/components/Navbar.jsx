@@ -6,7 +6,7 @@ import { mobile } from "../responsive";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { logoutUser } from "../redux/apiCalls";
-import { useHistory } from "react-router-dom";
+import { resetCart } from "../redux/cartRedux";
 
 const Container = styled.div`
   height: 60px;
@@ -81,7 +81,9 @@ const Navbar = () => {
   const handleLogout = (e) => {
     e.preventDefault();
     logoutUser(dispatch);
-    history.push('/');
+
+    dispatch(resetCart());
+
   };
 
   return (
@@ -104,7 +106,7 @@ const Navbar = () => {
 
           <MenuItem>
             {
-              user ? <Button onClick={handleLogout}> Logout </Button>
+              user ? <Button onClick={(e) => handleLogout(e, dispatch)}>Logout</Button>
                 :
                 < Button >
                   <Link to="/login" style={{ color: 'inherit', textDecoration: 'none' }}>
