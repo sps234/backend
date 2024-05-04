@@ -25,21 +25,21 @@ export const sliderItems = [
 export const categories = [
   {
     id: 1,
-    img: "https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    title: "SHIRT STYLE!",
+    img: "https://img.freepik.com/free-photo/lady-beige-trench-coat-is-smiling-pointing-her-fingers-pink-background-with-space-text_197531-17655.jpg?t=st=1714718035~exp=1714721635~hmac=3ddd8c2ba52af6966e5b8a43911a239167ba1ce9cd765d46a1964e1c09817d5a&w=1060",
+    title: "WOMEN FASHION",
     cat: "women"
   },
   {
     id: 2,
-    img: "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    title: "LOUNGEWEAR LOVE",
-    cat: "coat"
+    img: "https://img.freepik.com/free-photo/man-suit-studio_1303-5846.jpg?t=st=1714718428~exp=1714722028~hmac=f22b72b6770b0d62a0d89530352fffaf507925d00669296a4712890a12a25bbf&w=360",
+    title: "MEN FASHION",
+    cat: "men"
   },
   {
     id: 3,
     img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     title: "LIGHT JACKETS",
-    cat: "jeans"
+    cat: "lightjacket"
   },
 ];
 
