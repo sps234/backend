@@ -90,9 +90,9 @@ const Footer = () => {
   return (
     <Container>
       <Left>
-        <Logo> lorem </Logo>
+        <Logo> SwiftCart </Logo>
         <Desc>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem ipsa quos quaerat mollitia! Totam blanditiis incidunt rerum, at animi perspiciatis veritatis nesciunt facilis veniam repellendus ratione dignissimos accusantium explicabo reprehenderit inventore corporis fuga?
+          SwiftCart is a cutting-edge e-commerce platform designed to streamline online shopping experiences with its intuitive interface and robust features. Our platform offers a wide range of products, including clothing, accessories, electronics, and more.
         </Desc>
         <SocialContainer>
           <SocialIcon color="3B5999">
