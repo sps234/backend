@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { logoutUser } from "../redux/apiCalls";
 import { resetCart } from "../redux/cartRedux";
 
+
 const Container = styled.div`
   height: 60px;
   ${mobile({ height: "50px" })}
@@ -76,12 +77,10 @@ const Navbar = () => {
   const user = useSelector((state) => state.user.currentUser);
   const quantity = useSelector(state => state.cart.quantity);
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const handleLogout = (e) => {
     e.preventDefault();
     logoutUser(dispatch);
-
     dispatch(resetCart());
 
   };
