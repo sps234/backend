@@ -14,6 +14,7 @@ import { increaseQuantity, decreaseQuantity } from "../redux/cartRedux";
 import { useDispatch } from "react-redux";
 
 
+
 const KEY = "pk_test_51P8ndED4LIaqfaizi5XCrgRTLND6dqxw4nfxWUR0nRSm0NykOO0aCVTnVVtGdU23nCUB2qtK5hGA8u5sT1XCKaX300N0pKhQN3"
 // const KEY = process.env.STRIPE_KEY
 
@@ -176,6 +177,8 @@ const Cart = () => {
     setStripeToken(token);
   };
 
+
+
   useEffect(() => {
     const makeRequest = async () => {
       try {
@@ -263,11 +266,11 @@ const Cart = () => {
             </SummaryItem>
             <SummaryItem>
               <SummaryItemText>Shipping Discount</SummaryItemText>
-              <SummaryItemPrice>₹ -49.00</SummaryItemPrice>
+              <SummaryItemPrice>₹ {cart.total > 499 ? "-49.00" : "0.00"}</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem type="total">
               <SummaryItemText>Total</SummaryItemText>
-              <SummaryItemPrice>₹ {cart.total}</SummaryItemPrice>
+              <SummaryItemPrice>₹ {cart.total > 499 ? cart.total - 49 : cart.total}</SummaryItemPrice>
             </SummaryItem>
 
             <StripeCheckout
@@ -275,8 +278,8 @@ const Cart = () => {
               image="https://img.freepik.com/free-vector/digital-currency-indian-rupee-symbol-golden-coin_1017-42459.jpg?w=740&t=st=1714065369~exp=1714065969~hmac=5c05e16618c5b8fe5345e93c1e977649d2d017107b02f1110b3f9b9bcf154f19"
               billingAddress
               shippingAddress
-              description={`Your total is ₹${cart.total}`}
-              amount={cart.total * 100}
+              description={`Your total is ₹${cart.total > 499 ? cart.total - 49 : cart.total}`}
+              amount={(cart.total > 499 ? cart.total - 49 : cart.total) * 100}
               token={onToken}
               stripeKey={KEY}
             >

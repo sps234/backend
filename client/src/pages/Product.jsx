@@ -152,6 +152,7 @@ const Product = () => {
       addProduct({ ...product, quantity, color, size })
     );
   };
+
   return (
     <Container>
       <Navbar />

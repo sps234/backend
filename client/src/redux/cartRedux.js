@@ -9,9 +9,34 @@ const cartSlice = createSlice({
   },
   reducers: {
     addProduct: (state, action) => {
-      state.quantity += 1;
-      state.products.push(action.payload);
+      const existingProductIndex = state.products.findIndex((product) => product._id === action.payload._id);
+
+      if (existingProductIndex >= 0) {
+        state.products = state.products.map((product, index) => {
+          if (index !== existingProductIndex) {
+            return product;
+          }
+          return {
+            ...product,
+            quantity: product.quantity + action.payload.quantity,
+          };
+        });
+      } else {
+        state.products.push(action.payload);
+      }
+
+      state.quantity += action.payload.quantity;
       state.total += action.payload.price * action.payload.quantity;
+    },
+
+    removeProduct: (state, action) => {
+      const index = state.products.findIndex((product) => product._id === action.payload);
+      if (index !== -1) {
+        const product = state.products[index];
+        state.quantity -= product.quantity;
+        state.total -= product.price * product.quantity;
+        state.products.splice(index, 1);
+      }
     },
 
     resetCart: (state) => {
@@ -24,20 +49,21 @@ const cartSlice = createSlice({
       const product = state.products.find((product) => product._id === action.payload);
       if (product) {
         product.quantity += 1;
+        state.quantity += 1;
         state.total += product.price;
       }
     },
+
     decreaseQuantity: (state, action) => {
       const product = state.products.find((product) => product._id === action.payload);
-      if (product && product.quantity > 0) {
+      if (product && product.quantity > 1) {
         product.quantity -= 1;
+        state.quantity -= 1;
         state.total -= product.price;
       }
     },
-
-
   },
 });
 
-export const { addProduct, resetCart, increaseQuantity, decreaseQuantity } = cartSlice.actions;
+export const { addProduct, removeProduct, resetCart, increaseQuantity, decreaseQuantity } = cartSlice.actions;
 export default cartSlice.reducer;

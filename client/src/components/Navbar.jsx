@@ -75,7 +75,11 @@ const MenuItem = styled.div`
 
 const Navbar = () => {
   const user = useSelector((state) => state.user.currentUser);
-  const quantity = useSelector(state => state.cart.quantity);
+  const quantity = useSelector(state =>
+    Array.isArray(state.cart)
+      ? state.cart.reduce((total, item) => total + item.quantity, 0)
+      : 0
+  );
   const dispatch = useDispatch();
 
   const handleLogout = (e) => {
