@@ -9,7 +9,8 @@ import {
 } from "@material-ui/icons";
 import styled from "styled-components";
 import { mobile } from "../responsive";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
 const Container = styled.div`
   display: flex;
@@ -95,18 +96,29 @@ const Footer = () => {
           SwiftCart is a cutting-edge e-commerce platform designed to streamline online shopping experiences with its intuitive interface and robust features. Our platform offers a wide range of products, including clothing, accessories, electronics, and more.
         </Desc>
         <SocialContainer>
-          <SocialIcon color="3B5999">
-            <Facebook />
-          </SocialIcon>
-          <SocialIcon color="E4405F">
-            <Instagram />
-          </SocialIcon>
-          <SocialIcon color="55ACEE">
-            <Twitter />
-          </SocialIcon>
-          <SocialIcon color="E60023">
-            <Pinterest />
-          </SocialIcon>
+          <a href="https://www.facebook.com" style={{ color: 'inherit', textDecoration: 'none' }} >
+            <SocialIcon color="3B5999">
+              <Facebook />
+            </SocialIcon>
+          </a>
+
+          <a href="https://www.instagram.com" style={{ color: 'inherit', textDecoration: 'none' }} >
+            <SocialIcon color="E4405F">
+              <Instagram />
+            </SocialIcon>
+          </a>
+
+          <a href="https://www.twitter.com" style={{ color: 'inherit', textDecoration: 'none' }} >
+            <SocialIcon color="55ACEE">
+              <Twitter />
+            </SocialIcon>
+          </a>
+
+          <a href="https://www.pinterest.com" style={{ color: 'inherit', textDecoration: 'none' }} >
+            <SocialIcon color="E60023">
+              <Pinterest />
+            </SocialIcon>
+          </a>
         </SocialContainer>
       </Left>
       <Center>
@@ -115,15 +127,23 @@ const Footer = () => {
           <Container>
 
             <Left>
-              <ListItem>Home</ListItem>
-              <ListItem>Men Fashion</ListItem>
+              <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }} >
+                <ListItem>Home</ListItem>
+              </Link>
+              <Link to="/products/men" style={{ color: 'inherit', textDecoration: 'none' }} >
+                <ListItem>Men Fashion</ListItem>
+              </Link>
               <ListItem>Accessories</ListItem>
               <ListItem>Terms</ListItem>
             </Left>
 
             <Right>
-              <ListItem>Cart</ListItem>
-              <ListItem>Women Fashion</ListItem>
+              <Link to="/cart" style={{ color: 'inherit', textDecoration: 'none' }} >
+                <ListItem>Cart</ListItem>
+              </Link>
+              <Link to="/products/women" style={{ color: 'inherit', textDecoration: 'none' }} >
+                <ListItem>Women Fashion</ListItem>
+              </Link>
               <ListItem>My Account</ListItem>
               <ListItem>Wishlist</ListItem>
             </Right>

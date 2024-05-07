@@ -74,11 +74,12 @@ const MenuItem = styled.div`
 `;
 
 const Navbar = () => {
+
+
   const user = useSelector((state) => state.user.currentUser);
+
   const quantity = useSelector(state =>
-    Array.isArray(state.cart)
-      ? state.cart.reduce((total, item) => total + item.quantity, 0)
-      : 0
+    state.cart.products.reduce((total, item) => total + item.quantity, 0)
   );
   const dispatch = useDispatch();
 
@@ -105,7 +106,9 @@ const Navbar = () => {
           </Link>
         </Center>
         <Right>
-          <MenuItem>REGISTER</MenuItem>
+          <Link to="/register" style={{ color: 'inherit', textDecoration: 'none' }}>
+            <MenuItem>REGISTER</MenuItem>
+          </Link>
 
           <MenuItem>
             {

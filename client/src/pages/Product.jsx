@@ -11,6 +11,7 @@ import { publicRequest } from "../requestMethods";
 import { addProduct } from "../redux/cartRedux";
 import { useDispatch } from "react-redux";
 
+
 const Container = styled.div``;
 
 const Wrapper = styled.div`
@@ -23,11 +24,18 @@ const ImgContainer = styled.div`
   flex: 1;
 `;
 
+// const Image = styled.img`
+//   width: 100%;
+//   height: 130vh;
+//   object-fit: cover;
+//   ${mobile({ height: "60vh" })}
+// `;
+
 const Image = styled.img`
   width: 100%;
-  height: 130vh;
+  height: 100%;
   object-fit: cover;
-  ${mobile({ height: "40vh" })}
+  ${mobile({ height: "100%" })}
 `;
 
 const InfoContainer = styled.div`
@@ -141,7 +149,7 @@ const Product = () => {
 
   const handleQuantity = (type) => {
     if (type === "dec") {
-      quantity > 1 && setQuantity(quantity - 1);
+      quantity >= 1 && setQuantity(quantity - 1);
     } else {
       setQuantity(quantity + 1);
     }
